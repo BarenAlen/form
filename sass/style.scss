@@ -1,0 +1,161 @@
+
+
+@import "compass/reset";
+@import "compass/css3/box-shadow";
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+@import "compass/css3/animation";
+@import "compass/css3/box-sizing";
+
+
+* {
+	@include box-sizing(border-box);
+}
+
+body {
+	background: #333;
+	font-family: 'Raleway', sans-serif;
+}
+
+.container-center {
+	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	@include translate(-50%, -50%);
+}
+
+.form-container {
+	width: 450px;
+	margin: 0 auto;
+	background: #dddddd;
+	border-radius: 7px;
+	.form-header {
+		background: #4C7BB3;
+		border-top-right-radius: 7px;
+		border-top-left-radius: 7px;
+		position: relative;
+	.header {
+		display: block;
+		padding: 35px 0 35px 40px;
+		font-size: 28px;
+		color: #fff;
+	}
+	 .triangle {
+	 	width: 0;
+	 	height: 0;
+		border-style: solid;
+    	border-width: 15px 15px 0 15px;
+    	border-color: #4C7BB3 transparent transparent transparent;
+    	position: absolute;
+    	top: 97px;
+    	left: 70px;
+	 }
+	}
+	.form-main {
+		padding: 45px 35px 35px 35px;
+
+		.form-group {
+		position: relative;
+
+		.icon:before {
+			position: absolute;
+			font-family: fontAwesome;
+			right: 5px;
+			top: 8px;
+			content: "\f069";
+    		font-size: 24px;
+    		color:#eee;
+    		z-index: 200;
+		}	
+
+		}
+
+		.form-input{
+			font-family: 'Raleway', sans-serif;
+			font-size: 16px;
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border-radius: 5px;
+			border: 0;
+			color:#444;
+
+			&:hover, &:focus {
+			@include box-shadow(grey 0px 0px 10px);
+			outline: 0;
+			}
+
+		}
+
+		.button-submit {
+			width: 100%;
+			font-size: 32px;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			color: #fff;
+			border: 0;
+			background-color: #66A633;
+			border-radius: 5px;
+
+			&:hover {
+			background-color: #558533;
+			}
+		}
+		textarea {
+			height: 150px;
+		}
+	}
+}
+
+
+
+.form-main .form-group .form-input:focus:invalid + .icon:before {
+    color: #CF969A;
+    content: "\f057";
+}
+
+.form-main .form-group .form-input:valid + .icon:before {
+	content: "\f058";
+	color: #66A633;
+
+@include rotate(360deg);
+
+@include transition-property(transform);
+@include transition-duration(1s);
+}
+
+/*============Message=========*/
+
+.message-container {
+	display: none;
+	h1 {
+	font-size: 60px;
+	color: #fff;
+	}
+}
+
+#aiming:target .form-container {
+	display: none;
+}
+
+#aiming:target .message-container  {
+	display: block;
+	animation: fade 1s linear;
+	-webkit-animation: fade 1s linear;
+	-moz-animation: fade 1s linear;
+}
+
+@keyframes fade {
+	from{opacity: 0;}
+	to{opacity: 1;}
+}
+
+@-webkit-keyframes fade {
+	from{opacity: 0;}
+	to{opacity: 1;}
+}
+
+@-moz-keyframes fade {
+	from{opacity: 0;}
+	to{opacity: 1;}
+}
